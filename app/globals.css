@@ -1,0 +1,224 @@
+﻿@import "tailwindcss";
+
+@theme {
+  --color-primary: #111111;
+  --color-secondary: #70685C;
+  --color-accent: #D9D2C7;
+  --color-rich-black: #111111;
+  --color-cream: #F7F3EE;
+  --color-light-gray: #EAEAEA;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #F7F3EE;
+  overscroll-behavior: none;
+  height: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: #F7F3EE;
+  color: #111111;
+  font-family: var(--font-inter, sans-serif);
+  overflow-x: hidden;
+  margin: 0;
+  overscroll-behavior-y: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ── Typography ────────────────────────────── */
+.font-display { font-family: var(--font-playfair, serif); }
+
+.section-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: #70685C;
+}
+
+/* ── Reveal on Scroll ───────────────────────── */
+/* Desktop only: subtle fade-in on scroll */
+@media (min-width: 1024px) {
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s cubic-bezier(0.2, 1, 0.2, 1), transform 1s cubic-bezier(0.2, 1, 0.2, 1);
+  }
+  .reveal-on-scroll.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile: always visible — no hidden elements blocking touch */
+@media (max-width: 1023px) {
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    pointer-events: auto !important;
+  }
+
+  /* Reduce section padding: py-32 (8rem) → 3.5rem on mobile */
+  section {
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
+  }
+  /* Hero is full-screen — keep it */
+  #home {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  /* OurStory inner body padding */
+  #our-story .max-w-7xl {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  /* Reduce large heading / spacer gaps */
+  .mb-24 { margin-bottom: 2rem !important; }
+  .mb-20 { margin-bottom: 1.5rem !important; }
+  .py-32 { padding-top: 3.5rem !important; padding-bottom: 3.5rem !important; }
+}
+
+/* Scrollbar hide utility (for horizontal scroll tabs) */
+.scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+.scrollbar-none::-webkit-scrollbar { display: none; }
+
+/* Contact form inputs */
+.input-minimal {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #111111;
+  padding: 8px 0;
+  font-size: 14px;
+  font-family: var(--font-inter);
+  color: #111111;
+  outline: none;
+}
+.input-minimal::placeholder {
+  color: #70685C;
+}
+.input-minimal:focus {
+  border-bottom-color: #70685C;
+}
+
+/* ── Dish image grayscale reveal ─────────────── */
+/* Default: grayscale */
+.dish-image-wrap {
+  filter: grayscale(1);
+  transition: filter 0.8s ease;
+}
+/* Desktop: color on hover */
+@media (min-width: 1024px) {
+  .dish-image-wrap:hover {
+    filter: grayscale(0);
+  }
+}
+/* Mobile: color when scrolled into view */
+@media (max-width: 1023px) {
+  .dish-image-wrap.in-view {
+    filter: grayscale(0);
+  }
+}
+
+/* ── Our Story timeline line ─────────────────── */
+.story-line {
+  transition: height 1.8s cubic-bezier(0.2, 1, 0.2, 1);
+}
+.story-line-active {
+  height: 100% !important;
+}
+
+/* ── Marquee strip ───────────────────────────── */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 35s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+@keyframes marquee-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── Touch — no delay, no flash ─────────────── */
+a, button, [role="button"] {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Components ─────────────────────────────── */
+.btn-minimal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  background-color: #111111;
+  color: white;
+  font-weight: 800;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+  user-select: none;
+}
+.btn-minimal:active {
+  transform: scale(0.96);
+  opacity: 0.85;
+}
+
+.btn-outline-minimal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 31px;
+  border: 1px solid #111111;
+  color: #111111;
+  font-weight: 800;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+  user-select: none;
+}
+.btn-outline-minimal:active {
+  transform: scale(0.96);
+  opacity: 0.75;
+}
+
+.nav-link {
+  color: #111111;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+  transition: opacity 0.15s ease;
+}
+.nav-link:active {
+  opacity: 0.5;
+}
+
+.thai-ornament {
+  position: absolute;
+  opacity: 0.1;
+  pointer-events: none;
+  animation: float 15s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #F7F3EE; }
+::-webkit-scrollbar-thumb { background: #111111; }
