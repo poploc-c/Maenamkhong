@@ -14,13 +14,13 @@ export default function AnnouncementBanner() {
     >
       <p className="text-xs sm:text-sm font-medium tracking-wide text-center leading-snug">
         <span className="font-bold">🎉 River Khong, Te Awamutu</span>
-        {" "}ตอนนี้เป็นส่วนหนึ่งของครอบครัว Mae Nam Khong แล้ว —{" "}
+        {" "}is now part of the Mae Nam Khong family —{" "}
         <a
           href="https://venues.heybustle.com/NZ/river-khong"
           target="_blank"
           className="underline underline-offset-2 font-bold hover:opacity-80 transition-opacity whitespace-nowrap"
         >
-          สั่งออนไลน์ได้เลย →
+          Order Online Now →
         </a>
       </p>
 
