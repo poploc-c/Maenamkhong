@@ -1,4 +1,4 @@
-﻿export default function Hero() {
+export default function Hero() {
   return (
     <section
       id="home"
@@ -44,12 +44,15 @@
         <div className="h-[2px] w-16 bg-primary/20 mx-auto mb-10" />
 
         <p
-          className="text-primary max-w-xl mx-auto text-lg lg:text-xl font-light tracking-wide leading-relaxed mb-12 opacity-80"
+          className="text-primary max-w-xl mx-auto text-lg lg:text-xl font-light tracking-wide leading-relaxed mb-4 opacity-80"
         >
           An elevated journey through authentic Thai cuisine. <br className="hidden md:block" />
           Tradition refined for the modern Auckland palate.
         </p>
 
+        <p className="text-primary/40 text-xs tracking-[0.25em] uppercase mb-12">
+          Authentic Thai Restaurant · New Lynn, Auckland
+        </p>
 
         {/* CTA Buttons */}
         <div className="flex flex-wrap justify-center gap-6">
