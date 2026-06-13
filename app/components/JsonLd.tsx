@@ -3,8 +3,8 @@ export default function JsonLd() {
     "@context": "https://schema.org",
     "@type": "Restaurant",
     name: "Mae Nam Khong",
-    image: "https://maenamkhong.co.nz/images/SOCIAL%20SIZE-157.jpg",
-    url: "https://maenamkhong.co.nz",
+        image: "https://maenamkhong.com/images/SOCIAL%20SIZE-157.jpg",
+        url: "https://maenamkhong.com",
     telephone: "+6498264002",
     email: "info.maenamkhong@gmail.com",
     description:
