@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 type Branch = {
   id: string;
@@ -188,31 +188,38 @@ export default function Branches() {
                 )}
               </div>
 
-              <div className="mt-auto pt-10 border-t border-accent/50 flex items-center gap-8">
+              <div className="mt-auto pt-10 border-t border-accent/50">
                 {branch.orderUrl && (
-                  <a href={branch.orderUrl} target="_blank" className="text-[0.65rem] font-bold uppercase tracking-[0.25em] text-primary hover:text-secondary transition-all">
-                    Order
+                  <a
+                    href={branch.orderUrl}
+                    target="_blank"
+                    className="block w-full text-center py-4 px-6 mb-5 text-sm font-bold uppercase tracking-[0.2em] text-white transition-opacity hover:opacity-80"
+                    style={{ backgroundColor: "#C9A96E" }}
+                  >
+                    🛒 สั่งออนไลน์ · Order Now
                   </a>
                 )}
-                {branch.websiteUrl && (
-                  <a href={branch.websiteUrl} target="_blank" className="text-[0.65rem] font-bold uppercase tracking-[0.25em] text-primary hover:text-secondary transition-all">
-                    Site
-                  </a>
-                )}
-                {branch.mapUrl && (
-                  <a href={branch.mapUrl} target="_blank" className="text-[0.65rem] font-bold uppercase tracking-[0.25em] text-primary hover:text-secondary transition-all">
-                    Map
-                  </a>
-                )}
-                {branch.socialUrl && (
-                  <a href={branch.socialUrl} target="_blank" className="ml-auto group">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="group-hover:stroke-secondary transition-colors">
-                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                      <circle cx="12" cy="12" r="4" />
-                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                    </svg>
-                  </a>
-                )}
+                <div className="flex items-center gap-6">
+                  {branch.websiteUrl && (
+                    <a href={branch.websiteUrl} target="_blank" className="text-[0.65rem] font-bold uppercase tracking-[0.25em] text-primary hover:text-secondary transition-all">
+                      Website
+                    </a>
+                  )}
+                  {branch.mapUrl && (
+                    <a href={branch.mapUrl} target="_blank" className="text-[0.65rem] font-bold uppercase tracking-[0.25em] text-primary hover:text-secondary transition-all">
+                      Map / แผนที่
+                    </a>
+                  )}
+                  {branch.socialUrl && (
+                    <a href={branch.socialUrl} target="_blank" className="ml-auto group">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="group-hover:stroke-secondary transition-colors">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <circle cx="12" cy="12" r="4" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                      </svg>
+                    </a>
+                  )}
+                </div>
               </div>
 
             </div>
@@ -221,4 +228,4 @@ export default function Branches() {
       </div>
     </section>
   );
-}
+                                                                        }
