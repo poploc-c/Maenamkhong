@@ -22,7 +22,10 @@ export const metadata: Metadata = {
     "Auckland's award-winning Thai restaurant group. Authentic Thai cuisine across 7 locations — New Lynn, Titirangi, Herne Bay, St Johns, Te Awamutu and more. Dine in, takeaway or catering.",
   keywords:
     "Thai restaurant Auckland, authentic Thai food, Mae Nam Khong, New Lynn, Titirangi, Herne Bay, St Johns, Te Awamutu, Thai catering Auckland, Thai takeaway, Iconic Eats Award, BYO restaurant Auckland",
-  metadataBase: new URL("https://maenamkhong.co.nz"),
+    metadataBase: new URL("https://maenamkhong.com"),
+    verification: {
+          google: "38020zwe_k-YSy-H4mCBnSjHeUM4L68cmo00Khp43Os",
+    },
   openGraph: {
     title: "Mae Nam Khong | Authentic Thai Restaurant Auckland",
     description:
