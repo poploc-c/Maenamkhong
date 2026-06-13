@@ -1,3 +1,4 @@
+import AnnouncementBanner from "./components/AnnouncementBanner";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import OurStory from "./components/OurStory";
@@ -16,6 +17,7 @@ import MarqueeStrip from "./components/MarqueeStrip";
 export default function Home() {
   return (
     <div className="relative">
+      <AnnouncementBanner />
       <FlexEffects />
       <Navbar />
       <main className="pb-[72px] lg:pb-0">
