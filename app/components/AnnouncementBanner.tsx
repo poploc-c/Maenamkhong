@@ -13,15 +13,9 @@ export default function AnnouncementBanner() {
       style={{ backgroundColor: "#C9A96E" }}
     >
       <p className="text-xs sm:text-sm font-medium tracking-wide text-center leading-snug">
-        <span className="font-bold">🎉 River Khong, Te Awamutu</span>
-        {" "}is now part of the Mae Nam Khong family —{" "}
-        <a
-          href="https://venues.heybustle.com/NZ/river-khong"
-          target="_blank"
-          className="underline underline-offset-2 font-bold hover:opacity-80 transition-opacity whitespace-nowrap"
-        >
-          Order Online Now →
-        </a>
+        <span className="font-bold">🍜 Pop-Up at Eatropolis</span>
+        {" "}— SHED-10, Queens Wharf, Auckland · 10 October 2026{" "}
+        <span className="opacity-70">· See you there!</span>
       </p>
 
       <button
