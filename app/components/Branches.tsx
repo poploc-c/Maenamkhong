@@ -109,10 +109,11 @@ const branches: Branch[] = [
   {
     id: "07",
     name: "Mae Nam Khong",
-    subtitle: "Coming Soon",
-    address: "Auckland, New Zealand",
+    subtitle: "Commercial Bay",
+    tagline: "Harbour Eats · Commercial Bay, Auckland CBD",
+    address: "Commercial Bay, Auckland CBD",
     phone: "—",
-    hours: "Opening September 2026",
+    hours: "Opening Soon",
     icon: "LOCATION",
     tag: "New",
     comingSoon: true,
@@ -196,7 +197,7 @@ export default function Branches() {
                     className="block w-full text-center py-4 px-6 mb-5 text-sm font-bold uppercase tracking-[0.2em] text-white transition-opacity hover:opacity-80"
                     style={{ backgroundColor: "#C9A96E" }}
                   >
-                    🛒 สั่งออนไลน์ · Order Now
+                    สั่งออนไลน์ · Order Now
                   </a>
                 )}
                 <div className="flex items-center gap-6">
@@ -228,4 +229,4 @@ export default function Branches() {
       </div>
     </section>
   );
-                                                                        }
+}
