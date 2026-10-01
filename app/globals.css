@@ -40,14 +40,16 @@ body {
 }
 
 /* ── Reveal on Scroll ───────────────────────── */
-/* Desktop only: clip-path wipe from bottom */
+/* Desktop only: clip-path wipe from bottom
+   Only active once FlexEffects adds .scroll-ready to body */
 @media (min-width: 1024px) {
-  .reveal-on-scroll {
+  body.scroll-ready .reveal-on-scroll:not(.active) {
     clip-path: inset(0 0 100% 0);
     transition: clip-path 0.85s cubic-bezier(0.2, 1, 0.2, 1);
   }
-  .reveal-on-scroll.active {
+  body.scroll-ready .reveal-on-scroll.active {
     clip-path: inset(0 0 0% 0);
+    transition: clip-path 0.85s cubic-bezier(0.2, 1, 0.2, 1);
   }
   .reveal-delay-1 { transition-delay: 0.08s; }
   .reveal-delay-2 { transition-delay: 0.18s; }
@@ -138,12 +140,12 @@ body {
 
 /* ── Section line draw ───────────────────────── */
 @media (min-width: 1024px) {
-  .section-line {
+  body.scroll-ready .section-line {
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 1s cubic-bezier(0.2, 1, 0.2, 1) 0.55s;
   }
-  .reveal-on-scroll.active .section-line {
+  body.scroll-ready .reveal-on-scroll.active .section-line {
     transform: scaleX(1);
   }
 }
