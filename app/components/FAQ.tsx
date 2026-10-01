@@ -46,17 +46,22 @@ export default function FAQ() {
   return (
     <section id="faq" className="py-32 bg-[#F7F3EE]">
       <div className="max-w-3xl mx-auto px-8 lg:px-12">
+        {/* Header */}
         <div className="mb-20 reveal-on-scroll">
           <span className="section-tag mb-4 block">Have Questions?</span>
           <h2 className="font-display text-5xl lg:text-6xl text-primary font-medium">
             FAQ
           </h2>
-          <div className="h-px w-24 bg-accent mt-8" />
+          <div className="h-px w-24 bg-accent mt-8 section-line" />
         </div>
 
+        {/* Accordion */}
         <div className="space-y-0 reveal-on-scroll">
           {faqs.map((faq, index) => (
-            <div key={index} className="border-b border-primary/10">
+            <div
+              key={index}
+              className="border-b border-primary/10"
+            >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full flex items-center justify-between py-7 text-left gap-6 group"
@@ -72,11 +77,12 @@ export default function FAQ() {
                     }}
                   >
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path d="M8 1v14M1 8h14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                      <path d="M8 1v14M1 8h14" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
                     </svg>
                   </span>
                 </span>
               </button>
+
               <div
                 className="overflow-hidden transition-all duration-300 ease-in-out"
                 style={{
