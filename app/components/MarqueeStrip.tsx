@@ -8,7 +8,7 @@ const WORDS = [
   "Award Winning",
   "Refined Tradition",
   "Family Dining",
-  "6 Locations",
+  "7 Locations",
 ];
 
 const CONTENT = WORDS.join("  ·  ") + "  ·  ";
