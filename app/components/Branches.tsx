@@ -129,7 +129,7 @@ export default function Branches() {
           <h2 className="font-display text-5xl lg:text-6xl text-primary font-medium">
             Find Us
           </h2>
-          <div className="h-px w-24 bg-accent mt-8" />
+          <div className="h-px w-24 bg-accent mt-8 section-line" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
