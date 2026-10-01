@@ -43,7 +43,7 @@ export default function Catering() {
                 0{index + 1}
               </span>
               <h3 className="font-display text-2xl text-primary mb-4 font-medium">{f.title}</h3>
-              <div className="h-px w-10 bg-accent mb-6" />
+              <div className="h-px w-10 bg-accent mb-6 section-line" />
               <p className="text-secondary text-sm font-light leading-relaxed">{f.description}</p>
             </div>
           ))}
