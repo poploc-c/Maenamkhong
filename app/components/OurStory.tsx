@@ -22,6 +22,8 @@ const stats = [
 
 export default function OurStory() {
   const lineRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
+  const statsAnimated = useRef(false);
 
   useEffect(() => {
     const el = lineRef.current;
@@ -37,6 +39,60 @@ export default function OurStory() {
     );
     observer.observe(el);
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const container = statsRef.current;
+    if (!container) return;
+
+    const statEls = container.querySelectorAll<HTMLElement>("[data-stat-value]");
+
+    const parseValue = (raw: string) => {
+      const match = raw.match(/^(\d+)(.*)$/);
+      if (!match) return { target: 0, suffix: raw };
+      return { target: parseInt(match[1], 10), suffix: match[2] };
+    };
+
+    const countUp = () => {
+      if (statsAnimated.current) return;
+      statsAnimated.current = true;
+
+      const duration = 1800;
+      const delay = 420; // wait for reveal clip-path
+
+      setTimeout(() => {
+        statEls.forEach((el) => {
+          const raw = el.getAttribute("data-stat-value") ?? "";
+          const { target, suffix } = parseValue(raw);
+          const start = performance.now();
+
+          const tick = (now: number) => {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            // easeOutExpo
+            const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+            const current = Math.round(eased * target);
+            el.textContent = current + suffix;
+            if (progress < 1) requestAnimationFrame(tick);
+          };
+
+          requestAnimationFrame(tick);
+        });
+      }, delay);
+    };
+
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          countUp();
+          obs.unobserve(container);
+        }
+      },
+      { threshold: 0 }
+    );
+
+    obs.observe(container);
+    return () => obs.disconnect();
   }, []);
 
   return (
@@ -215,6 +271,7 @@ export default function OurStory() {
 
         {/* Stats row */}
         <div
+          ref={statsRef}
           className="grid grid-cols-2 md:grid-cols-4 gap-10 py-14 border-y reveal-on-scroll"
           style={{ borderColor: "rgba(201,169,110,0.2)" }}
         >
@@ -224,7 +281,7 @@ export default function OurStory() {
                 className="font-display text-4xl lg:text-5xl mb-2 font-light"
                 style={{ color: "#C9A96E" }}
               >
-                {s.value}
+                <span data-stat-value={s.value}>{s.value}</span>
               </p>
               <p className="text-white/40 text-[0.6rem] uppercase tracking-[0.25em] font-bold">
                 {s.label}
@@ -278,4 +335,4 @@ export default function OurStory() {
       </div>
     </section>
   );
-}
+      }
