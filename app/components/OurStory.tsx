@@ -4,15 +4,6 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { blurDataURL } from "../lib/shimmer";
 
-const milestones = [
-  { year: "2013", label: "First table served in New Lynn" },
-  { year: "2024", label: "Titirangi opened" },
-  { year: "2025", label: "Onzon De Thai Kitchen, Herne Bay" },
-  { year: "2025", label: "Mae Nam Khong BBQ launched a new chapter" },
-  { year: "2026", label: "St Johns opened" },
-  { year: "2026", label: "River Khong, Te Awamutu joins the family" },
-];
-
 const stats = [
   { value: "7", label: "Locations" },
   { value: "12+", label: "Years Serving Auckland" },
@@ -21,25 +12,8 @@ const stats = [
 ];
 
 export default function OurStory() {
-  const lineRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
   const statsAnimated = useRef(false);
-
-  useEffect(() => {
-    const el = lineRef.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.classList.add("story-line-active");
-          observer.unobserve(el);
-        }
-      },
-      { threshold: 0.2 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
 
   useEffect(() => {
     const container = statsRef.current;
@@ -175,100 +149,6 @@ export default function OurStory() {
           </div>
         </div>
 
-        {/* Alternating editorial timeline */}
-        <div className="mb-24 lg:mb-32">
-          <p
-            className="text-[0.65rem] uppercase tracking-[0.45em] font-bold mb-16 reveal-on-scroll"
-            style={{ color: "#C9A96E" }}
-          >
-            The Journey
-          </p>
-
-          <div className="relative">
-            {/* Center spine — desktop only */}
-            <div
-              className="absolute left-1/2 top-0 bottom-0 w-px bg-white/10 hidden lg:block"
-              style={{ transform: "translateX(-50%)" }}
-            />
-            <div
-              ref={lineRef}
-              className="story-line absolute left-1/2 top-0 w-px hidden lg:block"
-              style={{
-                height: 0,
-                transform: "translateX(-50%)",
-                background: "linear-gradient(to bottom, #C9A96E, rgba(201,169,110,0.1))",
-              }}
-            />
-
-            {milestones.map((m, i) => {
-              const isLeft = i % 2 === 0;
-              return (
-                <div
-                  key={i}
-                  className={`reveal-on-scroll reveal-delay-${(i % 3) + 1}`}
-                >
-                  {/* Desktop — alternating layout */}
-                  <div className="hidden lg:grid lg:grid-cols-[1fr_auto_1fr] items-center py-8">
-                    {/* Left column */}
-                    <div className="text-right pr-14">
-                      {isLeft ? (
-                        <p
-                          className="font-display font-light leading-none"
-                          style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)", color: "#C9A96E" }}
-                        >
-                          {m.year}
-                        </p>
-                      ) : (
-                        <p className="text-white/55 text-sm font-light leading-relaxed ml-auto max-w-[240px]">
-                          {m.label}
-                        </p>
-                      )}
-                    </div>
-
-                    {/* Center dot */}
-                    <div
-                      className="relative z-10 w-3 h-3 rounded-full flex-shrink-0"
-                      style={{
-                        backgroundColor: "#C9A96E",
-                        boxShadow: "0 0 0 5px rgba(201,169,110,0.12)",
-                      }}
-                    />
-
-                    {/* Right column */}
-                    <div className="text-left pl-14">
-                      {isLeft ? (
-                        <p className="text-white/55 text-sm font-light leading-relaxed max-w-[240px]">
-                          {m.label}
-                        </p>
-                      ) : (
-                        <p
-                          className="font-display font-light leading-none"
-                          style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)", color: "#C9A96E" }}
-                        >
-                          {m.year}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Mobile — simple left-aligned list */}
-                  <div className="lg:hidden flex gap-6 items-start py-5 border-b border-white/10">
-                    <p
-                      className="font-display font-light leading-none flex-shrink-0 w-[4.5rem]"
-                      style={{ fontSize: "1.9rem", color: "#C9A96E" }}
-                    >
-                      {m.year}
-                    </p>
-                    <p className="text-white/60 text-sm font-light leading-relaxed pt-1">
-                      {m.label}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
         {/* Stats row */}
         <div
           ref={statsRef}
@@ -335,4 +215,4 @@ export default function OurStory() {
       </div>
     </section>
   );
-      }
+}
