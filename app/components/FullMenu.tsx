@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 
@@ -101,7 +101,7 @@ export default function FullMenu() {
           <h2 className="font-display text-5xl lg:text-6xl text-primary font-medium italic">
             The Menu
           </h2>
-          <div className="h-px w-24 bg-accent mx-auto mt-6" />
+          <div className="h-px w-24 bg-accent mx-auto mt-6 section-line" />
         </div>
 
         {/* Tabs — wrap layout (no horizontal scroll, reliable on iOS) */}
