@@ -111,7 +111,7 @@ const branches: Branch[] = [
     name: "Mae Nam Khong",
     subtitle: "Commercial Bay",
     tagline: "Harbour Eats, SHED-10 · Auckland CBD",
-    address: "Commercial Bay, Auckland CBD",
+    address: "Harbour Eats Level 2/Commercial Bay, Auckland CBD, Auckland 1010",
     phone: "—",
     hours: "Now Open",
     mapUrl: "https://share.google/gg5cH5R2nEekNO1Kc",
