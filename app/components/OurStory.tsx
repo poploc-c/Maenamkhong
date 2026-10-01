@@ -87,7 +87,7 @@ export default function OurStory() {
               "A family table, set{" "}
               <span style={{ color: "#C9A96E" }}>for all of Auckland.</span>"
             </div>
-            <div className="h-px w-16 mt-10 mb-10" style={{ backgroundColor: "#C9A96E" }} />
+            <div className="h-px w-16 mt-10 mb-10 section-line" style={{ backgroundColor: "#C9A96E" }} />
             <p className="text-white/50 text-sm leading-relaxed font-light max-w-sm">
               What began as one family's dream to share the food they grew up with has become
               one of Auckland's most beloved Thai restaurant groups.
