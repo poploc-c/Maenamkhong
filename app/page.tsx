@@ -1,6 +1,7 @@
 import AnnouncementBanner from "./components/AnnouncementBanner";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import StoryScroll from "./components/StoryScroll";
 import OurStory from "./components/OurStory";
 import Branches from "./components/Branches";
 import MenuShowcase from "./components/MenuShowcase";
@@ -22,6 +23,7 @@ export default function Home() {
       <Navbar />
       <main className="pb-[72px] lg:pb-0">
         <Hero />
+        <StoryScroll />
         <OurStory />
         <MarqueeStrip variant="dark" />
         <Branches />
